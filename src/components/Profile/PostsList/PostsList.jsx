@@ -2,10 +2,14 @@ import classes from "./PostsList.css";
 import Post from "./Post/Post";
 
 function PostsList(){
+    let posts = [
+        {id: 1, text:"Hello props!", likes: 93},
+        {id: 2, text:"Hello props! SECOND COMPONENT!", likes: 18},
+    ];
+    let postsElements = posts.map(post =>  <Post likes = {post.likes} text={post.text}/>)
     return (
         <div>
-            <Post likes = "93" text="HELLO PROPS!"/>
-            <Post likes = "18" text="HELLO PROPS! SECOND COMPONENT!"/>
+            {postsElements};
         </div>
     )
 }

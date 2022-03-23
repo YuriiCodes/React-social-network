@@ -17,11 +17,14 @@ function App() {
                 <div className="main-content">
                     <Routes>
                         <Route exact path="/" element={<Profile />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/messages" element={<Dialogs />} />
-                        <Route path="/news" element={<News />} />
-                        <Route path="/music" element={<Music />} />
-                        <Route path="/settings" element={<Settings />}/>
+                        <Route path="profile" element={<Profile />} />
+
+                        <Route  path="messages" element={<Dialogs />} >
+                            <Route path=":messageId" element={<Dialogs />}/>
+                        </Route>
+                        <Route path="news" element={<News />} />
+                        <Route path="music" element={<Music />} />
+                        <Route path="settings" element={<Settings />}/>
                     </Routes>
                 </div>
             </div>
