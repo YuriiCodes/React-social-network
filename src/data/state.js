@@ -1,25 +1,11 @@
 let state = {
     dialogsPage: {
         messages: [
-            {
-                chatId: 1,
-                message: ["➡️ Hello"],
-            },
-            {
-                chatId: 2,
-                message: ["➡️ How's life, pal?"]
-            }
-        ],
+            {chatId: 1, message: ["Hello"],},
+            {chatId: 2, message: [" How's life, pal?"]}],
         contacts: [
-            {
-                id: 1,
-                name: "🤠 Pevel Durov",
-            },
-            {
-                id: 2,
-                name: "🥶 Elon Musk"
-            }
-        ]
+            {id: 1, name: "🤠 Pevel Durov",},
+            {id: 2, name: "🥶 Elon Musk"}]
     },
     profilePage: {
         posts: [
