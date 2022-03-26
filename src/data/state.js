@@ -43,9 +43,6 @@ let store = {
             newPostText: ""
         }
     },
-    _reRenderEntireTree() {
-        console.log('state has change!');
-    },
     _callSubscriber() {
         console.log('State changed')
     },
@@ -53,7 +50,7 @@ let store = {
         return this._state;
     },
     subscribe(observerFn) {
-        this._reRenderEntireTree = observerFn; //observer pattern
+        this._callSubscriber = observerFn; //observer pattern
     },
     dispatch(action) {
         switch (action.type) {
@@ -65,23 +62,26 @@ let store = {
                 }
                 this._state.profilePage.posts.push(newPost);
                 this._state.profilePage.newPostText = "";
-                this._reRenderEntireTree(this._state);
+                this._callSubscriber(this._state);
                 break;
             case "UPDATE-NEW-POST-TEXT":
                 this._state.profilePage.newPostText = (action.newPostText);
-                this._reRenderEntireTree(this._state);
+                this._callSubscriber(this._state);
+
                 break;
             case "GET-STATE":
                 return this._state;
             case "UPDATE-NEW-MESSAGE-TEXT":
                 this._state.dialogsPage.newMessageText = action.newMessageText;
-                this._reRenderEntireTree(this._state);
+                this._callSubscriber(this._state);
+
                 break;
             case "SEND-MESSAGE":
                 let newMessage = {chatId: 1, message: [this._state.dialogsPage.newMessageText]};
                 this._state.dialogsPage.messages.push(newMessage);
                 this._state.dialogsPage.newMessageText = "";
-                this._reRenderEntireTree(this._state);
+                this._callSubscriber(this._state);
+
                 break;
             default:
                 console.log("You've entered wrong type in dispatch action. Please fix that!")
