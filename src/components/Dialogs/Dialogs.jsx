@@ -10,8 +10,7 @@ function Dialogs(props) {
     let messagesElements = props.state.messages.map(message => <Message message={message.message}/>);
     let dialogsElements = props.state.contacts.map(contact => <Dialog id={contact.id} name={contact.name}/>);
 
-    return (
-        <div className={classes.dialogs}>
+    return (<div className={classes.dialogs}>
             <div className={classes.contacts}>
                 <ul>
                     {dialogsElements}
@@ -24,10 +23,9 @@ function Dialogs(props) {
                 </div>
             </div>
             <div className={classes.NewMessageForm}>
-                <NewMessageForm newMessageText={props.state.newMessageText} updateNewMessageText={props.updateNewMessageText} sendMessage={props.sendMessage}/>
+                <NewMessageForm dispatch={props.dispatch} newMessageText={props.state.newMessageText} />
             </div>
-        </div>
-    )
+        </div>)
 };
 
 

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
@@ -9,24 +9,27 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 
-
 function App(props) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <Header />
-                <Nav />
+                <Header/>
+                <Nav/>
                 <div className="main-content">
                     <Routes>
-                        <Route exact path="/" element={<Profile state={props.state.profilePage} dispatch={props.dispatch} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
-                        <Route path="profile" element={<Profile state={props.state.profilePage}  dispatch={props.dispatch} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
+                        <Route exact path="/"
+                               element={<Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
+                        <Route path="profile"
+                               element={<Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
 
-                        <Route  path="messages" element={<Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText} />} >
-                            <Route path=":messageId" element={<Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText} />}/>
+                        <Route path="messages"
+                               element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}>
+                            <Route path=":messageId"
+                                   element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
                         </Route>
-                        <Route path="news" element={<News />} />
-                        <Route path="music" element={<Music />} />
-                        <Route path="settings" element={<Settings />}/>
+                        <Route path="news" element={<News/>}/>
+                        <Route path="music" element={<Music/>}/>
+                        <Route path="settings" element={<Settings/>}/>
                     </Routes>
                 </div>
             </div>
