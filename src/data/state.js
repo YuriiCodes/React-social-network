@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import sidebarReducer from "./sidebarReducer";
+import dialogsReducer from "./dialogsReducer";
+
 const ACTION_TYPES = {
     ADD_POST: "ADD-POST",
     UPDATE_NEW_POST_TEXT: "UPDATE-NEW-POST-TEXT",
@@ -41,7 +45,8 @@ let store = {
                 {id: 2, text: "Hello props! SECOND COMPONENT!", likes: 18},
             ],
             newPostText: ""
-        }
+        },
+        sidebar: {}
     },
     _callSubscriber() {
         console.log('State changed')
@@ -53,65 +58,12 @@ let store = {
         this._callSubscriber = observerFn; //observer pattern
     },
     dispatch(action) {
-        switch (action.type) {
-            case "ADD-POST":
-                let newPost = {
-                    id: 5,
-                    text: this._state.profilePage.newPostText,
-                    likes: 0
-                }
-                this._state.profilePage.posts.push(newPost);
-                this._state.profilePage.newPostText = "";
-                this._callSubscriber(this._state);
-                break;
-            case "UPDATE-NEW-POST-TEXT":
-                this._state.profilePage.newPostText = (action.newPostText);
-                this._callSubscriber(this._state);
-
-                break;
-            case "GET-STATE":
-                return this._state;
-            case "UPDATE-NEW-MESSAGE-TEXT":
-                this._state.dialogsPage.newMessageText = action.newMessageText;
-                this._callSubscriber(this._state);
-
-                break;
-            case "SEND-MESSAGE":
-                let newMessage = {chatId: 1, message: [this._state.dialogsPage.newMessageText]};
-                this._state.dialogsPage.messages.push(newMessage);
-                this._state.dialogsPage.newMessageText = "";
-                this._callSubscriber(this._state);
-
-                break;
-            default:
-                console.log("You've entered wrong type in dispatch action. Please fix that!")
-        }
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._callSubscriber();
     },
 
-    // addPost() {
-    //     let newPost = {
-    //         id: 5,
-    //         text: this._state.profilePage.newPostText,
-    //         likes: 0
-    //     }
-    //     this._state.profilePage.posts.push(newPost);
-    //     this._state.profilePage.newPostText = "";
-    //     this._reRenderEntireTree(this._state);
-    // },
-    // updateNewPostText(newPostText) {
-    //     this._state.profilePage.newPostText = (newPostText);
-    //     this._reRenderEntireTree(this._state);
-    // },
-    // updateNewMessageText(newMessageText) {
-    //     this._state.dialogsPage.newMessageText = newMessageText;
-    //     this._reRenderEntireTree(this._state);
-    // },
-    // sendMessage() {
-    //     let newMessage = {chatId: 1, message: [this._state.dialogsPage.newMessageText]};
-    //     this._state.dialogsPage.messages.push(newMessage);
-    //     this._state.dialogsPage.newMessageText = "";
-    //     this._reRenderEntireTree(this._state);
-    // },
 }
 window.store = store;
 export default store;
