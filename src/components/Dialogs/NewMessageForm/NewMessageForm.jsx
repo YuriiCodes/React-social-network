@@ -1,16 +1,19 @@
 import classes from "./NewMessageForm.module.css"
 import {useRef} from "react";
+import {messageChangeActionCreator, sendMessageActionCreator} from "../../../data/state";
+
+
 
 function NewMessageForm(props) {
     let newMessageInputRef = useRef(null);
 
     let sendMessage = (e) => {
         e.preventDefault();
-        props.dispatch({type: "SEND-MESSAGE"});
+        props.dispatch(sendMessageActionCreator());
     }
 
     let onMessageChange = () => {
-        props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessageText: newMessageInputRef.current.value})
+        props.dispatch(messageChangeActionCreator(newMessageInputRef.current.value));
     }
     return (
         <form className={classes.form} onSubmit={sendMessage}>

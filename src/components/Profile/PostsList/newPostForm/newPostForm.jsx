@@ -1,5 +1,6 @@
 import classes from "./newPostForm.module.css";
 import {useRef} from "react";
+import {addPostActionCreator, postChangeActionCreator} from "../../../../data/state";
 
 
 function NewPostForm(props) {
@@ -7,10 +8,10 @@ function NewPostForm(props) {
 
     let addPost = (e) => {
         e.preventDefault();
-        props.dispatch({type: "ADD-POST"})
+        props.dispatch(addPostActionCreator());
     };
     let onPostChange = () => {
-        props.dispatch({type: "UPDATE-NEW-POST-TEXT", newPostText: newPostInput.current.value})
+        props.dispatch(postChangeActionCreator(newPostInput.current.value));
     };
     return (
         <form className={classes.form} onSubmit={addPost}>
