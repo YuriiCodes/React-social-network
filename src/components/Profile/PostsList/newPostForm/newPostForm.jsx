@@ -15,7 +15,7 @@ function NewPostForm(props) {
     };
     return (
         <form className={classes.form} onSubmit={addPost}>
-            <label for="postInput">Add new post</label>
+            <label htmlFor="postInput">Add new post</label>
             <input id="postInput" ref={newPostInput} type="text" onChange={onPostChange} className={classes.input}
                    name="postInput" value={props.newPostText}/>
             <button onClick={addPost} className={classes.submit}>
