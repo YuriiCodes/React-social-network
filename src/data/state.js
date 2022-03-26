@@ -9,23 +9,23 @@ const ACTION_TYPES = {
     UPDATE_NEW_MESSAGE_TEXT: "UPDATE-NEW-MESSAGE-TEXT",
 }
 
-export const addPostActionCreator = () => ({
-    type: ACTION_TYPES.ADD_POST
-});
-export const postChangeActionCreator = (newPostText) => ({
-    type: ACTION_TYPES.UPDATE_NEW_POST_TEXT,
-    newPostText
-});
+// export const addPostActionCreator = () => ({
+//     type: ACTION_TYPES.ADD_POST
+// });
+// export const postChangeActionCreator = (newPostText) => ({
+//     type: ACTION_TYPES.UPDATE_NEW_POST_TEXT,
+//     newPostText
+// });
 
 
-export const sendMessageActionCreator = () => ({
-    type: ACTION_TYPES.SEND_MESSAGE
-});
-
-export const messageChangeActionCreator = (newMessageText) => ({
-    type: ACTION_TYPES.UPDATE_NEW_MESSAGE_TEXT,
-    newMessageText
-})
+// export const sendMessageActionCreator = () => ({
+//     type: ACTION_TYPES.SEND_MESSAGE
+// });
+//
+// export const messageChangeActionCreator = (newMessageText) => ({
+//     type: ACTION_TYPES.UPDATE_NEW_MESSAGE_TEXT,
+//     newMessageText
+// })
 
 
 let store = {

@@ -1,6 +1,5 @@
 import classes from "./NewMessageForm.module.css"
-import {messageChangeActionCreator, sendMessageActionCreator} from "../../../data/state";
-
+import {messageChangeActionCreator, sendMessageActionCreator} from "../../../data/dialogsReducer";
 
 
 function NewMessageForm(props) {
