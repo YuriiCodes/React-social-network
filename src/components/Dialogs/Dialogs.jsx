@@ -24,7 +24,7 @@ function Dialogs(props) {
                 </div>
             </div>
             <div className={classes.NewMessageForm}>
-                <NewMessageForm />
+                <NewMessageForm newMessageText={props.state.newMessageText} updateNewMessageText={props.updateNewMessageText} sendMessage={props.sendMessage}/>
             </div>
         </div>
     )

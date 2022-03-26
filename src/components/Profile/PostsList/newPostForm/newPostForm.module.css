@@ -1,20 +1,28 @@
 .form{
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /*margin: .5em;*/
     padding: .5em;
-}
-.form label{
-    margin-bottom: .5em;
-}
-.submit{
-    color: #1e1e1e;
-    width: 20%;
 }
 
 .input{
-    margin-bottom: .5em;
-    width: 80%;
-    color: #1e1e1e;
-    resize: vertical;
-
+    width: 90%;
+    height: 2.5em;
+    background-color: #323232;
+    border-top: 1px  solid rgba(235, 235, 235, .1);
+    border-left: 1px  solid rgba(235, 235, 235, .1);
+    border-bottom: 1px  solid rgba(235, 235, 235, .1);
+    padding: .5em;
+    margin-top: .5em;
+}
+.input:focus{
+    outline: none;
+}
+.submit{
+    width: 10%;
+    height: 2.5em;
+    background-color: #323232;
+    border-top: 1px  solid rgba(235, 235, 235, .1);
+    border-right: 1px  solid rgba(235, 235, 235, .1);
+    border-bottom: 1px  solid rgba(235, 235, 235, .1);
 }

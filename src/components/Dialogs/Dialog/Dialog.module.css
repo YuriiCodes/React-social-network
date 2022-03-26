@@ -6,5 +6,7 @@
     color: #dcdcdc;
     text-decoration: none;
     border-bottom: 1px solid #3d3d3d;
-
+}
+li{
+    padding: .5em .5em 0 .5em;
 }

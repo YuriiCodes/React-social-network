@@ -10,10 +10,11 @@
     border-top: 1px  solid rgba(235, 235, 235, .1);
     border-left: 1px  solid rgba(235, 235, 235, .1);
     border-bottom: 1px  solid rgba(235, 235, 235, .1);
-
-
+    padding: .5em;
 }
-
+.input:focus{
+    outline: none;
+}
 .submit{
     width: 10%;
     height: 2.5em;

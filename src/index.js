@@ -1,17 +1,19 @@
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import state from "./data/state";
+import store from "./data/state";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App state = {state}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let reRenderEntireTree = (state) =>{ ReactDOM.render(
+    <React.StrictMode>
+        <App state = {store.getState()} dispatch={store.dispatch.bind(store)} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} sendMessage={store.sendMessage.bind(store)} updateNewMessageText={store.updateNewMessageText.bind(store)}/>
+    </React.StrictMode>,
+    document.getElementById('root')
+)};
 
+store.subscribe(reRenderEntireTree);
+reRenderEntireTree(store.getState());
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

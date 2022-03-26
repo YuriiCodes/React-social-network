@@ -18,11 +18,11 @@ function App(props) {
                 <Nav />
                 <div className="main-content">
                     <Routes>
-                        <Route exact path="/" element={<Profile state={props.state.profilePage}/>} />
-                        <Route path="profile" element={<Profile state={props.state.profilePage}/>} />
+                        <Route exact path="/" element={<Profile state={props.state.profilePage} dispatch={props.dispatch} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
+                        <Route path="profile" element={<Profile state={props.state.profilePage}  dispatch={props.dispatch} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
 
-                        <Route  path="messages" element={<Dialogs state={props.state.dialogsPage} />} >
-                            <Route path=":messageId" element={<Dialogs state={props.state.dialogsPage} />}/>
+                        <Route  path="messages" element={<Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText} />} >
+                            <Route path=":messageId" element={<Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText} />}/>
                         </Route>
                         <Route path="news" element={<News />} />
                         <Route path="music" element={<Music />} />
