@@ -7,10 +7,13 @@ function NewPostForm(props) {
 
     let addPost = (e) => {
         e.preventDefault();
-        props.dispatch(addPostActionCreator());
+        props.addPost();
+        // props.dispatch(addPostActionCreator());
     };
     let onPostChange = () => {
-        props.dispatch(postChangeActionCreator(newPostInput.current.value));
+        let text = newPostInput.current.value;
+        props.updateNewPostText(text);
+        // props.dispatch(postChangeActionCreator(newPostInput.current.value));
     };
     return (
         <form className={classes.form} onSubmit={addPost}>

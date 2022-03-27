@@ -18,9 +18,11 @@ function App(props) {
                 <div className="main-content">
                     <Routes>
                         <Route exact path="/"
-                               element={<Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
+                               // element={<Profile state={props.state.profilePage} store={props.store} dispatch={props.dispatch}/>}/>
+                               element={<Profile store={props.store}/>}/>
                         <Route path="profile"
-                               element={<Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
+                               // element={<Profile state={props.state.profilePage} store={props.store} dispatch={props.dispatch}/>}/>
+                               element={<Profile store={props.store} />}/>
 
                         <Route path="messages"
                                element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}>
