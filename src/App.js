@@ -18,17 +18,17 @@ function App(props) {
                 <div className="main-content">
                     <Routes>
                         <Route exact path="/"
-                               // element={<Profile state={props.state.profilePage} store={props.store} dispatch={props.dispatch}/>}/>
-                               element={<Profile store={props.store}/>}/>
+                               // element={<Profile store={props.store}/>}/>
+                               element={<Profile />}/>
                         <Route path="profile"
-                               // element={<Profile state={props.state.profilePage} store={props.store} dispatch={props.dispatch}/>}/>
-                               element={<Profile store={props.store} />}/>
-
+                               // element={<Profile store={props.store} />}/>
+                               element={<Profile  />}/>
                         <Route path="messages"
                                // element={<Dialogs store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}>
-                               element={<DialogsContainer store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}>
+                               element={<DialogsContainer />}>
                             <Route path=":messageId"
-                                   element={<DialogsContainer store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
+                                   element={<DialogsContainer />}/>
+                                    {/*element={<DialogsContainer store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>*/}
                         </Route>
                         <Route path="news" element={<News/>}/>
                         <Route path="music" element={<Music/>}/>
