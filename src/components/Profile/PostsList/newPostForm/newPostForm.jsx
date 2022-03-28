@@ -8,7 +8,6 @@ function NewPostForm(props) {
     let addPost = (e) => {
         e.preventDefault();
         props.addPost();
-        // props.dispatch(addPostActionCreator());
     };
     let onPostChange = () => {
         let text = newPostInput.current.value;

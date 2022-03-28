@@ -8,4 +8,5 @@ let reducers = combineReducers({profilePage: profileReducer, sidebar:sidebarRedu
 
 let store = createStore(reducers);
 
+window.store = store;
 export default store;

@@ -1,7 +1,8 @@
 
 let initialState = {};
 const sidebarReducer = (state = initialState, action) => {
-    console.log("sidebar reducer");
-    return state;
+    let stateCopy = {...state};
+
+    return stateCopy;
 }
 export default sidebarReducer;

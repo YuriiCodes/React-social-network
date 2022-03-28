@@ -4,26 +4,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import store from "./data/reduxStore"
-import StoreContext, {Provider} from "./StoreContext";
 
 
-let reRenderEntireTree = (state) =>{ ReactDOM.render(
-    <React.StrictMode>
+// import StoreContext, {Provider} from "./StoreContext";
+// import StoreContext  from "./StoreContext";
+import {Provider} from "react-redux";
+
+
+let reRenderEntireTree = (state) => {
+    ReactDOM.render(<React.StrictMode>
         {/*<StoreContext.Provider value={store}>*/}
         {/*    /!*<App store={store}  state = {state} dispatch={store.dispatch.bind(store)} />*!/*/}
         {/*    <App />*/}
         {/*</StoreContext.Provider>*/}
 
         <Provider store={store}>
-            <App />
+            <App/>
         </Provider>
 
-    </React.StrictMode>,
-    document.getElementById('root')
-)};
+    </React.StrictMode>, document.getElementById('root'))
+};
 
 // this arrow function will be executed, caliing reRenderEntireTree method with new state, when state changes
-store.subscribe( () => reRenderEntireTree(store.getState()));
+// store.subscribe(() => reRenderEntireTree(store.getState()));
 reRenderEntireTree(store.getState());
 store.getState()
 // If you want to start measuring performance in your app, pass a function
