@@ -12,25 +12,20 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
-    // We copy state, because reducer is a pure function, and pure function takes in some data and
+    // We need to copy state, because reducer is a pure function, and pure function takes in some data and
     // outputs result, but cannot change imputed data. That property is called immutability
-    let stateCopy = {...state};
-    stateCopy.posts = [...state.posts]
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: 5,
-                text: stateCopy.newPostText,
+                text: {...state}.newPostText,
                 likes: 0
             }
-            stateCopy.posts.push(newPost);
-            stateCopy.newPostText = "";
-            return stateCopy;
+            return {...state, posts: [...state.posts, newPost], newPostText: ""};
         case UPDATE_NEW_POST_TEXT:
-            stateCopy.newPostText = (action.newPostText);
-            return stateCopy;
+            return {...state, newPostText: action.newPostText}
         default:
-            return stateCopy;
+            return state;
     }
 }
 

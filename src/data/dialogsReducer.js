@@ -3,32 +3,28 @@ const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 
 let initialState = {
-    messages: [
-        {chatId: 1, message: ["Hello"],},
-        {chatId: 2, message: [" How's life, pal?"]}],
-    contacts: [
-        {id: 1, name: "🤠 Pevel Durov",},
-        {id: 2, name: "🥶 Elon Musk"}
-    ],
+    messages: [{chatId: 1, message: ["Hello"],}, {chatId: 2, message: [" How's life, pal?"]}],
+    contacts: [{id: 1, name: "🤠 Pevel Durov",}, {id: 2, name: "🥶 Elon Musk"}],
     newMessageText: ""
 };
 const dialogsReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
-    stateCopy.messages = [...state.messages];
+    switch (action.type) {
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            return  {...state, newMessageText: action.newMessageText}
+        }
 
-    switch (action.type){
-        case UPDATE_NEW_MESSAGE_TEXT:
-            // this._state.dialogsPage.newMessageText = action.newMessageText;
-            stateCopy.newMessageText = action.newMessageText;
-            return stateCopy;
-        case SEND_MESSAGE:
-            stateCopy.messages = [...state.messages];
+        case SEND_MESSAGE: {
             let newMessage = {chatId: 1, message: [state.newMessageText]};
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageText = "";
-            return stateCopy;
-        default:
-            return stateCopy;
+            return  {...state, messages: [...state.messages, newMessage], newMessageText: ""};
+
+            // Same results as above!
+            // stateCopy.messages = [...state.messages];
+            // stateCopy.newMessageText = "";
+            // stateCopy.messages.push(newMessage);
+        }
+        default: {
+            return state;
+        }
     }
 };
 
@@ -39,6 +35,5 @@ export const sendMessageActionCreator = () => ({
 });
 
 export const messageChangeActionCreator = (newMessageText) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newMessageText
+    type: UPDATE_NEW_MESSAGE_TEXT, newMessageText
 })

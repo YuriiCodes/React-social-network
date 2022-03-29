@@ -9,8 +9,8 @@ function Dialogs(props) {
 
 
 // Arrays of messages and dialogs, we pass it to our <Dialog /> component via props
-    let messagesElements = props.messages.map(message => <Message message={message.message}/>);
-    let dialogsElements = props.contacts.map(contact => <Dialog id={contact.id} name={contact.name}/>);
+    let messagesElements = props.messages.map(message => <Message key={message.chatId} message={message.message}/>);
+    let dialogsElements = props.contacts.map(contact => <Dialog key={contact.id} id={contact.id} name={contact.name}/>);
 
     return (<div className={classes.dialogs}>
             <div className={classes.contacts}>
