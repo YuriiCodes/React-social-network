@@ -1,14 +1,16 @@
-import classes from "./User.module.css";
-import React from "react";
-
+import classes from "./User.module.css"
 function User(props) {
+    debugger;
     return (
         <div className={classes.user}>
             <div className={classes.photoAndSubscribe}>
                 <div className={classes.avatar}></div>
                 <span className={classes.photoUrl}>{props.photoUrl}</span>
-                {props.following ? <button onClick={props.follow(2)}>Follow</button> :
-                    <button>Unfollow</button>}
+
+                {props.followed ? <button onClick={() => props.unfollow(props.id)}>Unfollow</button> :
+                    <button onClick={() => props.follow(props.id)}>follow</button>}
+
+
             </div>
 
             <div className={classes.userInfo}>
@@ -23,7 +25,7 @@ function User(props) {
                 </div>
                 <div className={classes.userLocation}>
                     <div>
-                        <span className={classes.country}>{props.country}, </span>
+                        <span className={classes.country}>{props.country}</span>
 
                     </div>
                     <div>
