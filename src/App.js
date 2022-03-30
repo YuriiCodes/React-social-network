@@ -7,6 +7,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 function App(props) {
@@ -30,6 +31,7 @@ function App(props) {
                                    element={<DialogsContainer />}/>
                                     {/*element={<DialogsContainer store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>*/}
                         </Route>
+                        <Route path="users" element={<UsersContainer />}/>
                         <Route path="news" element={<News/>}/>
                         <Route path="music" element={<Music/>}/>
                         <Route path="settings" element={<Settings/>}/>
