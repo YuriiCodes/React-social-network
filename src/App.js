@@ -31,12 +31,8 @@ function App(props) {
                                    element={<DialogsContainer />}/>
                                     {/*element={<DialogsContainer store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>*/}
                         </Route>
-<<<<<<< HEAD
                         <Route path="users" element={<UsersContainer />}/>
-=======
-                        <Route path="users"
-                               element={<UsersContainer />}/>
->>>>>>> 1b57fc94827862bddc6cfff3bf5ca2e81360f9dc
+
                         <Route path="news" element={<News/>}/>
                         <Route path="music" element={<Music/>}/>
                         <Route path="settings" element={<Settings/>}/>

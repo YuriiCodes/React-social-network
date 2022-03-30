@@ -4,13 +4,10 @@
     grid-template-columns: 1fr 11fr;
     padding: .5em;
 }
-<<<<<<< HEAD
 .photoAndSubscribe button{
     background-color: #1e1e1e;
-    font-weight: bold;
-=======
+    font-weight: bold;}
 .photoAndSubscribe{
->>>>>>> 1b57fc94827862bddc6cfff3bf5ca2e81360f9dc
 }
 .avatar{
     background-color: #ffeaff;
