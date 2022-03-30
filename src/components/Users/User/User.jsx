@@ -1,12 +1,12 @@
 import classes from "./User.module.css";
-
+import React from "react";
 function User(props) {
     return (
         <div className={classes.user}>
             <div className={classes.photoAndSubscribe}>
                 <div className={classes.avatar}></div>
                 <span className={classes.photoUrl}>{props.photoUrl}</span>
-                <button>{props.following}Follow</button>
+                { props.following ?  <button>Follow</button> : <button>Unfollow</button>}
             </div>
 
             <div className={classes.userInfo}>
