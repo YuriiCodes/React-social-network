@@ -1,7 +1,7 @@
 import User from "./User/User";
 import React, {useEffect} from "react";
 import axios from "axios";
-
+import classes from "./Users.module.css"
 // function Users(props) {
 //     let getUsers = () => {
 //         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(res => {
@@ -32,7 +32,7 @@ import axios from "axios";
 //         ])
 //     }
 //
-//     // Same as applying componentDidMount method in class component
+//     // Hook that is called after every render cycle (both render and every re-render)
 //     useEffect( () => {
 //         getUsers();
 //     })
@@ -54,9 +54,10 @@ class Users extends React.Component {
     }
 
     getUsers = () => {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(res => {
-            this.props.setUsers(res.data.items)
-            console.log(res);
+        let url = `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`;
+        axios.get(url).then(res => {
+            this.props.setUsers(res.data.items);
+            this.props.setTotalUsersCount(res.data.totalCount);
         })
     }
     setDefaultUsers = () => {
@@ -81,11 +82,27 @@ class Users extends React.Component {
             },
         ])
     }
-
+    onPageChanged = (p) => {
+        this.props.setCurrentPage(p);
+        let url = `https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`;
+        axios.get(url).then(res => {
+            this.props.setUsers(res.data.items)
+        })
+    }
     render() {
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        let pages = []
+        for (let i = 1; i<= pagesCount; ++i){
+            pages.push(i)
+        }
+
         return (
             <div>
-                <button onClick={this.getUsers}>Get users</button>
+                <button className={classes.userLoaderBtn} onClick={this.setDefaultUsers}>Get users</button>
+                <div className={classes.pagination}>
+                    {pages.map(p =><span onClick={ (e) => this.onPageChanged(p)} className={p === this.props.currentPage? classes.active: ""}>{p}</span>)}
+
+                </div>
                 {
                     this.props.users.map(u => <User id={u.id} photoUrl={u.photoUrl} followed={u.followed}
                                                     fullName={u.name} status={u.status} follow={this.props.follow}
