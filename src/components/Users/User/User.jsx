@@ -8,7 +8,7 @@ function User(props) {
                 <span className={classes.photoUrl}>{props.photoUrl}</span>
 
                 {props.followed ? <button onClick={() => props.unfollow(props.id)}>Unfollow</button> :
-                    <button onClick={() => props.follow(props.id)}>follow</button>}
+                    <button onClick={() => props.follow(props.id)}>Follow</button>}
 
 
             </div>
@@ -24,13 +24,12 @@ function User(props) {
 
                 </div>
                 <div className={classes.userLocation}>
-                    <div>
-                        <span className={classes.country}>{props.country}</span>
+                    <div className={classes.country}>
+                        <span>{props.country},</span>
 
                     </div>
-                    <div>
-                        <span className={classes.city}>{props.city}</span>
-
+                    <div className={classes.city}>
+                        <span >{props.city}</span>
                     </div>
                 </div>
             </div>

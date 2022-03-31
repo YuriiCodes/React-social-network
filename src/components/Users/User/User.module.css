@@ -41,9 +41,10 @@
 .status{
 }
 .city{
-
+    text-align: end;
+    width: 100%;
 }
 .country{
-    margin-bottom: 2em;
-
+    text-align: end;
+    width: 100%;
 }

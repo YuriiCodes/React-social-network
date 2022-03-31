@@ -12,17 +12,14 @@ import {Provider} from "react-redux";
 
 
 let reRenderEntireTree = (state) => {
-    ReactDOM.render(<React.StrictMode>
-        {/*<StoreContext.Provider value={store}>*/}
-        {/*    /!*<App store={store}  state = {state} dispatch={store.dispatch.bind(store)} />*!/*/}
-        {/*    <App />*/}
-        {/*</StoreContext.Provider>*/}
-
+    ReactDOM.render(
+        // <React.StrictMode>
         <Provider store={store}>
             <App/>
         </Provider>
 
-    </React.StrictMode>, document.getElementById('root'))
+    // </React.StrictMode>
+        , document.getElementById('root'))
 };
 
 // this arrow function will be executed, caliing reRenderEntireTree method with new state, when state changes

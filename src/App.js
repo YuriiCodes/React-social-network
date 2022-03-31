@@ -19,17 +19,13 @@ function App(props) {
                 <div className="main-content">
                     <Routes>
                         <Route exact path="/"
-                               // element={<Profile store={props.store}/>}/>
                                element={<Profile />}/>
                         <Route path="profile"
-                               // element={<Profile store={props.store} />}/>
                                element={<Profile  />}/>
                         <Route path="messages"
-                               // element={<Dialogs store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}>
                                element={<DialogsContainer />}>
                             <Route path=":messageId"
                                    element={<DialogsContainer />}/>
-                                    {/*element={<DialogsContainer store={props.store} state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>*/}
                         </Route>
                         <Route path="users" element={<UsersContainer />}/>
 
