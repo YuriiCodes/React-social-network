@@ -1,18 +1,23 @@
 .userLoaderBtn{
     background-color: #323232;
     padding: .5em;
-    border: 1px  solid rgba(235, 235, 235, .1);
-    width: 7em;
 }
-.userLoaderBtn:hover{
-    font-weight: bold;
-}
-.pagination{
-    padding: .5em;
-}
-.pagination span{
-    margin-right: .2em;
+span:hover{
+    cursor: pointer;
 }
 .active{
     font-weight: bold;
+}
+.loadUsers{
+    background: #1e1e1e;
+    padding: .5em;
+    border:1px  solid rgba(235, 235, 235, .1)
+}
+.paginationMenu{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+}
+.paginationMenu span{
+    padding-right: .25em;
 }
