@@ -12,6 +12,7 @@ let initialState = {
     totalUsersCount: 16,
     currentPaginationArray:[1, 2, 3],
     lastPaginationElement: 0
+
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -36,8 +37,12 @@ const usersReducer = (state = initialState, action) => {
                     return u;
                 })
             };
+        case SET_CURRENT_PAGE:
+            return {...state, currentPage: action.currentPage}
+
         case SET_USERS:
             return {...state, users: [ ...action.users]}
+
         case CHANGE_PAGE:
             return {...state, currentPage: action.currentPage}
         case SET_TOTAL_USERS_COUNT:
@@ -48,6 +53,7 @@ const usersReducer = (state = initialState, action) => {
             return {...state, currentPaginationArray: [...action.currentPaginationArray]}
         case SET_LAST_PAGINATION_ELEMENT:
             return {...state, lastPaginationElement: action.lastPaginationElement}
+
         default:
             return state;
     }
@@ -60,4 +66,5 @@ export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const setCurrentPageAC = (page) => ({type: CHANGE_PAGE, currentPage: page});
 export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
 export const setPaginationArrayAC = (paginationArray) => ({type: SET_PAGINATION_ARRAY, currentPaginationArray: paginationArray});
+
 export default usersReducer;

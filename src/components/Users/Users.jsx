@@ -2,6 +2,7 @@ import User from "./User/User";
 import React, {useEffect} from "react";
 import axios from "axios";
 import classes from "./Users.module.css";
+
 // function Users(props) {
 //     let getUsers = () => {
 //         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(res => {
@@ -32,7 +33,7 @@ import classes from "./Users.module.css";
 //         ])
 //     }
 //
-//     // Same as applying componentDidMount method in class component
+//     // Hook that is called after every render cycle (both render and every re-render)
 //     useEffect( () => {
 //         getUsers();
 //     })
@@ -60,6 +61,8 @@ class Users extends React.Component {
             let amountOfPages = Math.ceil(this.props.totalUsersCount / this.props.usersPerPage);
             this.props.setLastPaginationElement(amountOfPages - 1);
             console.log(res);
+
+
         })
     }
     setDefaultUsers = () => {
@@ -84,6 +87,7 @@ class Users extends React.Component {
             },
         ])
     }
+
     updatePaginationList = (pageNumber, amountOfPages) => {
         if (pageNumber > 0 && pageNumber < amountOfPages) {
             if (pageNumber + 1 === amountOfPages) {
@@ -124,6 +128,9 @@ class Users extends React.Component {
 
                     <button className={classes.loadUsers} onClick={this.setDefaultUsers}>Get users</button>
                 </div>
+
+
+   
 
                 {
                     this.props.users.map(u => <User id={u.id} photoUrl={u.photoUrl} followed={u.followed}

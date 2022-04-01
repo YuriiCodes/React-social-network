@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import Users from "./Users";
+
 import {
     followAC,
     setCurrentPageAC, setLastPaginationElementAC,
@@ -10,6 +11,9 @@ import {
 } from "../../data/usersReducer";
 
 
+
+
+
 let mapStateToProps = (state) => {
     return{
         users: state.usersPage.users,
@@ -18,6 +22,8 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPaginationArray: state.usersPage.currentPaginationArray,
         lastPaginationElement: state.usersPage.lastPaginationElement,
+
+
     }
 }
 
@@ -32,6 +38,7 @@ let mapDispatchToProps = (dispatch) => {
         setUsers: (users) => {
             dispatch(setUsersAC(users))
         },
+
         changePage: (pageNumber) => {
             dispatch(setCurrentPageAC(pageNumber))
         },
@@ -43,6 +50,10 @@ let mapDispatchToProps = (dispatch) => {
         },
         setLastPaginationElement: (lastPaginationElement) => {
             dispatch(setLastPaginationElementAC(lastPaginationElement))
+
+    
+              
+
         }
     }
 }
