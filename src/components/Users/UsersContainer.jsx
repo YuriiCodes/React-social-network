@@ -1,29 +1,14 @@
 import {connect} from "react-redux";
 import Users from "./Users";
-
-import {
-    followAC,
-    setCurrentPageAC, setLastPaginationElementAC,
-    setPaginationArrayAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    unfollowAC
-} from "../../data/usersReducer";
-
-
-
+import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC} from "../../data/usersReducer";
 
 
 let mapStateToProps = (state) => {
     return{
         users: state.usersPage.users,
-        currentPage: state.usersPage.currentPage,
-        usersPerPage: state.usersPage.usersPerPage,
+        pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPaginationArray: state.usersPage.currentPaginationArray,
-        lastPaginationElement: state.usersPage.lastPaginationElement,
-
-
+        currentPage: state.usersPage.currentPage
     }
 }
 
@@ -38,22 +23,11 @@ let mapDispatchToProps = (dispatch) => {
         setUsers: (users) => {
             dispatch(setUsersAC(users))
         },
-
-        changePage: (pageNumber) => {
+        setCurrentPage: (pageNumber) => {
             dispatch(setCurrentPageAC(pageNumber))
         },
-        setTotalUsersCount: (totalUsersCount) => {
-            dispatch(setTotalUsersCountAC(totalUsersCount))
-        },
-        setCurrentPaginationArray: (currentPaginationArray) => {
-            dispatch(setPaginationArrayAC(currentPaginationArray))
-        },
-        setLastPaginationElement: (lastPaginationElement) => {
-            dispatch(setLastPaginationElementAC(lastPaginationElement))
-
-    
-              
-
+        setTotalUsersCount: (usersCount) => {
+            dispatch(setTotalUsersCountAC(usersCount))
         }
     }
 }
